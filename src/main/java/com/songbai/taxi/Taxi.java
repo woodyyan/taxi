@@ -2,7 +2,7 @@ package com.songbai.taxi;
 
 import com.songbai.taximeter.Taximeter;
 
-public abstract class Taxi {
+public class Taxi {
 
     private Taximeter taximeter;
 
@@ -14,7 +14,7 @@ public abstract class Taxi {
         this.taximeter = taximeter;
     }
 
-    public Double run(boolean isDaytime, Double distance) throws Exception {
+    public Double run(boolean isDaytime, Integer distance) throws Exception {
         if (taximeter == null) {
             throw new Exception("No taximeter found.");
         }

@@ -31,7 +31,7 @@ public abstract class Taximeter {
         this.unitPrice = unitPrice;
     }
 
-    public abstract Double calculatePrice(Double distance);
+    public abstract Double calculatePrice(Integer distance);
 
     public double getLongDistanceUnitPrice() {
         return longDistanceUnitPrice;

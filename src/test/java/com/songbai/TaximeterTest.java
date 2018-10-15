@@ -13,7 +13,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(2.5);
         taximeter.setLongDistanceUnitPrice(3.5);
 
-        Double price = taximeter.calculatePrice(2.0);
+        Double price = taximeter.calculatePrice(2);
 
         Assert.assertEquals(14, price, 0.0);
     }
@@ -25,7 +25,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(2.5);
         taximeter.setLongDistanceUnitPrice(3.5);
 
-        Double price = taximeter.calculatePrice(4.0);
+        Double price = taximeter.calculatePrice(4);
 
         Assert.assertEquals(16.5, price, 0.0);
     }
@@ -37,7 +37,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(2.5);
         taximeter.setLongDistanceUnitPrice(3.5);
 
-        Double price = taximeter.calculatePrice(11.0);
+        Double price = taximeter.calculatePrice(11);
 
         Assert.assertEquals(14 + 7 * 2.5 + 3.5, price, 0.0);
     }
@@ -49,7 +49,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(3);
         taximeter.setLongDistanceUnitPrice(4.7);
 
-        Double price = taximeter.calculatePrice(2.0);
+        Double price = taximeter.calculatePrice(2);
 
         Assert.assertEquals(18, price, 0.0);
     }
@@ -61,7 +61,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(3);
         taximeter.setLongDistanceUnitPrice(4.7);
 
-        Double price = taximeter.calculatePrice(4.0);
+        Double price = taximeter.calculatePrice(4);
 
         Assert.assertEquals(21, price, 0.0);
     }
@@ -73,7 +73,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(3);
         taximeter.setLongDistanceUnitPrice(4.7);
 
-        Double price = taximeter.calculatePrice(11.0);
+        Double price = taximeter.calculatePrice(11);
 
         Assert.assertEquals(18 + 7 * 3 + 4.7, price, 0.0);
     }
@@ -85,7 +85,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(2.5);
         taximeter.setLongDistanceUnitPrice(2.5);
 
-        Double price = taximeter.calculatePrice(2.0);
+        Double price = taximeter.calculatePrice(2);
 
         Assert.assertEquals(14, price, 0.0);
     }
@@ -97,7 +97,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(2.5);
         taximeter.setLongDistanceUnitPrice(2.5);
 
-        Double price = taximeter.calculatePrice(4.0);
+        Double price = taximeter.calculatePrice(4);
 
         Assert.assertEquals(16.5, price, 0.0);
     }
@@ -109,7 +109,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(2.5);
         taximeter.setLongDistanceUnitPrice(2.5);
 
-        Double price = taximeter.calculatePrice(11.0);
+        Double price = taximeter.calculatePrice(11);
 
         Assert.assertEquals(14 + 8 * 2.5, price, 0.0);
     }
@@ -121,7 +121,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(3);
         taximeter.setLongDistanceUnitPrice(3);
 
-        Double price = taximeter.calculatePrice(2.0);
+        Double price = taximeter.calculatePrice(2);
 
         Assert.assertEquals(18, price, 0.0);
     }
@@ -133,7 +133,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(3);
         taximeter.setLongDistanceUnitPrice(3);
 
-        Double price = taximeter.calculatePrice(4.0);
+        Double price = taximeter.calculatePrice(4);
 
         Assert.assertEquals(21, price, 0.0);
     }
@@ -145,7 +145,7 @@ public class TaximeterTest {
         taximeter.setUnitPrice(3);
         taximeter.setLongDistanceUnitPrice(3);
 
-        Double price = taximeter.calculatePrice(11.0);
+        Double price = taximeter.calculatePrice(11);
 
         Assert.assertEquals(18 + 8 * 3, price, 0.0);
     }

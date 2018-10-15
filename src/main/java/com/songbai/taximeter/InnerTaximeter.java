@@ -3,7 +3,7 @@ package com.songbai.taximeter;
 public class InnerTaximeter extends Taximeter {
 
     @Override
-    public Double calculatePrice(Double distance) {
+    public Double calculatePrice(Integer distance) {
         if (distance <= MIN_DISTANCE) {
             return this.getStartingPrice();
         } else if (distance <= MAX_DISTANCE) {
