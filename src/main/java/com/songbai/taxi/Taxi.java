@@ -2,6 +2,8 @@ package com.songbai.taxi;
 
 import com.songbai.taximeter.Taximeter;
 
+import java.security.InvalidParameterException;
+
 public class Taxi {
 
     private Taximeter taximeter;
@@ -14,9 +16,9 @@ public class Taxi {
         this.taximeter = taximeter;
     }
 
-    public Double run(boolean isDaytime, Integer distance) throws Exception {
+    public Double run(boolean isDaytime, Integer distance) {
         if (taximeter == null) {
-            throw new Exception("No taximeter found.");
+            throw new InvalidParameterException("No taximeter found.");
         }
 
         taximeter.switchPrice(isDaytime);
