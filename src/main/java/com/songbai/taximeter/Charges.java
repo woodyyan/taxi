@@ -1,10 +1,8 @@
 package com.songbai.taximeter;
 
-public class Charges {
-    private static final double DEFAULT_STARTING_PRICE = 14;
-    private static final double DEFAULT_UNIT_PRICE = 2.5;
-    private static final double DEFAULT_LONG_DISTANCE_UNIT_PRICE = 3.5;
+import static com.songbai.config.GlobalConfigs.*;
 
+public class Charges {
     private double startingPrice = DEFAULT_STARTING_PRICE;
     private double unitPrice = DEFAULT_UNIT_PRICE;
     private double longDistanceUnitPrice = DEFAULT_LONG_DISTANCE_UNIT_PRICE;
