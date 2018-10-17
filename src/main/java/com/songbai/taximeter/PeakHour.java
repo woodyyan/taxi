@@ -35,8 +35,8 @@ public class PeakHour {
 
     public boolean contains(Date startingTime) {
         int hour = HourUtil.getHour(startingTime);
-        int fromHour = HourUtil.getHour(from);
-        int toHour = HourUtil.getHour(to);
+        int fromHour = HourUtil.getHour(getFrom());
+        int toHour = HourUtil.getHour(getTo());
         return hour >= fromHour && hour <= toHour;
     }
 }

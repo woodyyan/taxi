@@ -1,6 +1,7 @@
 package com.songbai.taxi;
 
-import com.songbai.taximeter.*;
+import com.songbai.taximeter.PeakHour;
+import com.songbai.taximeter.Taximeter;
 import com.songbai.taximeter.strategy.NightStrategy;
 import com.songbai.taximeter.strategy.OuterStrategy;
 import com.songbai.taximeter.strategy.PeakHourStrategy;
@@ -34,22 +35,22 @@ public class Taxi {
     }
 
     public Double run(Date startingTime, Integer distance) {
-        if (taximeter == null) {
+        if (this.getTaximeter() == null) {
             throw new InvalidParameterException("No taximeter found.");
         }
 
         if (checkIsNight(startingTime)) {
-            taximeter.getPriceStrategies().add(new NightStrategy());
+            this.getTaximeter().getPriceStrategies().add(new NightStrategy());
         }
         if (isOuterTaxi) {
-            taximeter.getPriceStrategies().add(new OuterStrategy());
+            this.getTaximeter().getPriceStrategies().add(new OuterStrategy());
         }
         if (checkIsPeakHour(startingTime)) {
             double peakRate = getPeakRate(startingTime);
-            taximeter.getPriceStrategies().add(new PeakHourStrategy(peakRate));
+            this.getTaximeter().getPriceStrategies().add(new PeakHourStrategy(peakRate));
         }
 
-        return taximeter.calculatePrice(distance);
+        return this.getTaximeter().calculatePrice(distance);
     }
 
     private double getPeakRate(Date startingTime) {
