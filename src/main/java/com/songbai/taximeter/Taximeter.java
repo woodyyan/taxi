@@ -1,55 +1,33 @@
 package com.songbai.taximeter;
 
-public abstract class Taximeter {
-    protected static final double MIN_DISTANCE = 3;
-    protected static final double MAX_DISTANCE = 10;
+import java.util.ArrayList;
+import java.util.List;
 
-    private static final double DAYTIME_STARTING_PRICE = 14;
-    private static final double DAYTIME_UNIT_PRICE = 2.5;
-    private static final double DAYTIME_LONG_DISTANCE_UNIT_PRICE = 3.5;
-    private static final double NIGHT_STARTING_PRICE = 18;
-    private static final double NIGHT_UNIT_PRICE = 3;
-    private static final double NIGHT_LONG_DISTANCE_UNIT_PRICE = 4.7;
+public class Taximeter {
+    private static final double MIN_DISTANCE = 3;
+    private static final double MAX_DISTANCE = 10;
 
-    private double startingPrice = DAYTIME_STARTING_PRICE;
-    private double unitPrice = DAYTIME_UNIT_PRICE;
-    private double longDistanceUnitPrice = DAYTIME_LONG_DISTANCE_UNIT_PRICE;
+    private List<PriceStrategy> priceStrategies = new ArrayList<>();
 
-    public double getStartingPrice() {
-        return startingPrice;
+
+    public List<PriceStrategy> getPriceStrategies() {
+        return priceStrategies;
     }
 
-    public void setStartingPrice(double startingPrice) {
-        this.startingPrice = startingPrice;
-    }
+    public Double calculatePrice(Integer distance) {
+        Charges adjustedCharges = new Charges();
+        for (PriceStrategy strategy : priceStrategies) {
+            strategy.adjust(adjustedCharges);
+        }
 
-    public double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public abstract Double calculatePrice(Integer distance);
-
-    public double getLongDistanceUnitPrice() {
-        return longDistanceUnitPrice;
-    }
-
-    public void setLongDistanceUnitPrice(double longDistanceUnitPrice) {
-        this.longDistanceUnitPrice = longDistanceUnitPrice;
-    }
-
-    public void switchPrice(boolean isDaytime) {
-        if (isDaytime) {
-            this.setStartingPrice(DAYTIME_STARTING_PRICE);
-            this.setUnitPrice(DAYTIME_UNIT_PRICE);
-            this.setLongDistanceUnitPrice(DAYTIME_LONG_DISTANCE_UNIT_PRICE);
+        if (distance <= MIN_DISTANCE) {
+            return adjustedCharges.getStartingPrice();
+        } else if (distance <= MAX_DISTANCE) {
+            return (distance - MIN_DISTANCE) * adjustedCharges.getUnitPrice() + adjustedCharges.getStartingPrice();
         } else {
-            this.setStartingPrice(NIGHT_STARTING_PRICE);
-            this.setUnitPrice(NIGHT_UNIT_PRICE);
-            this.setLongDistanceUnitPrice(NIGHT_LONG_DISTANCE_UNIT_PRICE);
+            return (distance - MAX_DISTANCE) * adjustedCharges.getLongDistanceUnitPrice()
+                    + (MAX_DISTANCE - MIN_DISTANCE) * adjustedCharges.getUnitPrice()
+                    + adjustedCharges.getStartingPrice();
         }
     }
 }

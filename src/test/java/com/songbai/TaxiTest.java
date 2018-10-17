@@ -1,7 +1,6 @@
 package com.songbai;
 
 import com.songbai.taxi.Taxi;
-import com.songbai.taximeter.InnerTaximeter;
 import com.songbai.taximeter.Taximeter;
 import org.junit.Assert;
 import org.junit.Test;
