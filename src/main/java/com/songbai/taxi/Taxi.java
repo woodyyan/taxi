@@ -1,6 +1,9 @@
 package com.songbai.taxi;
 
 import com.songbai.taximeter.*;
+import com.songbai.taximeter.strategy.NightStrategy;
+import com.songbai.taximeter.strategy.OuterStrategy;
+import com.songbai.taximeter.strategy.PeakHourStrategy;
 import com.songbai.utils.HourUtil;
 
 import java.security.InvalidParameterException;

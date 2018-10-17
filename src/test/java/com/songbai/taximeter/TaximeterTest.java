@@ -1,5 +1,6 @@
 package com.songbai.taximeter;
 
+import com.songbai.taximeter.strategy.NightStrategy;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,5 +1,7 @@
 package com.songbai.taximeter;
 
+import com.songbai.taximeter.strategy.PriceStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 

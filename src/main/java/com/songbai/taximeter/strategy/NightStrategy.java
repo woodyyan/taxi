@@ -1,4 +1,6 @@
-package com.songbai.taximeter;
+package com.songbai.taximeter.strategy;
+
+import com.songbai.taximeter.Charges;
 
 public class NightStrategy extends PriceStrategy {
     private static final double NIGHT_STARTING_PRICE = 18;
