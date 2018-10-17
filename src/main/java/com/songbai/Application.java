@@ -11,7 +11,8 @@ public class Application {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date daytime = simpleDateFormat.parse("2018-10-15 10:11:00");
         Date night = simpleDateFormat.parse("2018-10-15 23:11:00");
-        Date peakTime = simpleDateFormat.parse("2018-10-15 19:11:00");
+        Date morningPeakTime = simpleDateFormat.parse("2018-10-15 08:11:00");
+        Date eveningPeakTime = simpleDateFormat.parse("2018-10-15 19:11:00");
 
         // 乘客白天在内环坐出租车，行驶2公里，应付费14元
         String result = CitySystem.takeTaxi(false, daytime, 2);
@@ -61,8 +62,12 @@ public class Application {
         result = CitySystem.takeTaxi(true, night, 11);
         System.out.println(result);
 
-        // 乘客白天高峰期在内环坐出租车，行驶11公里，应付费56元
-        result = CitySystem.takeTaxi(false, peakTime, 11);
+        // 乘客早高峰在内环坐出租车，行驶11公里，应付费56元
+        result = CitySystem.takeTaxi(false, morningPeakTime, 11);
+        System.out.println(result);
+
+        // 乘客晚高峰在内环坐出租车，行驶11公里，应付费77元
+        result = CitySystem.takeTaxi(false, eveningPeakTime, 11);
         System.out.println(result);
     }
 }
