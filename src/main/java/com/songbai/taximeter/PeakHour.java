@@ -1,5 +1,7 @@
 package com.songbai.taximeter;
 
+import com.songbai.utils.HourUtil;
+
 import java.util.Date;
 
 public class PeakHour {
@@ -32,6 +34,9 @@ public class PeakHour {
     }
 
     public boolean contains(Date startingTime) {
-        return false;
+        int hour = HourUtil.getHour(startingTime);
+        int fromHour = HourUtil.getHour(from);
+        int toHour = HourUtil.getHour(to);
+        return hour >= fromHour && hour <= toHour;
     }
 }
