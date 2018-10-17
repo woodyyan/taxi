@@ -24,4 +24,12 @@ public class TaximeterTest {
         Double price = taximeter.calculatePrice(11);
         Assert.assertEquals(35, price, 0.0);
     }
+
+    @Test
+    public void shouldReturnCorrectPriceWhenRunDistanceIs2GivenPriceStrategy() {
+        Taximeter taximeter = new Taximeter();
+        taximeter.getPriceStrategies().add(new NightStrategy());
+        Double price = taximeter.calculatePrice(2);
+        Assert.assertEquals(18, price, 0.0);
+    }
 }
