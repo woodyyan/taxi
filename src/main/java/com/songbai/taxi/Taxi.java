@@ -1,10 +1,10 @@
 package com.songbai.taxi;
 
 import com.songbai.taximeter.*;
+import com.songbai.utils.HourUtil;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -61,10 +61,7 @@ public class Taxi {
     }
 
     private boolean checkIsNight(Date startingTime) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setLenient(true);
-        calendar.setTime(startingTime);
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int hour = HourUtil.getHour(startingTime);
         int defaultFromTime = 23;
         int defaultToTime = 6;
         return hour >= defaultFromTime || hour < defaultToTime;
