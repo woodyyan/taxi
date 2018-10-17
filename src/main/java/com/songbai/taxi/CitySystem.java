@@ -6,7 +6,6 @@ import java.util.Date;
 
 public class CitySystem {
     public static String takeTaxi(boolean isOuterRing, Date startingTime, Integer distance) {
-
         Taxi taxi = new Taxi(isOuterRing);
         taxi.setTaximeter(new Taximeter());
         Double price = taxi.run(startingTime, distance);
