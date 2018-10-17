@@ -7,8 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.songbai.config.GlobalConfigs.EVENING_PEAK_RATE;
-import static com.songbai.config.GlobalConfigs.MORNING_PEAK_RATE;
+import static com.songbai.config.GlobalConfigs.*;
 
 public class CitySystem {
     public static String takeTaxi(boolean isOuterRing, Date startingTime, Integer distance) throws ParseException {
@@ -24,9 +23,9 @@ public class CitySystem {
     }
 
     private static PeakHour generateMorningPeakHour() throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        Date from = simpleDateFormat.parse("2018-10-17 07:00:00");
-        Date to = simpleDateFormat.parse("2018-10-17 09:00:00");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DEFAULT_TIME_FORMAT);
+        Date from = simpleDateFormat.parse(MORNING_FROM_PEAK_TIME);
+        Date to = simpleDateFormat.parse(MORNING_TO_PEAK_TIME);
         PeakHour peakHour = new PeakHour();
         peakHour.setFrom(from);
         peakHour.setTo(to);
@@ -35,9 +34,9 @@ public class CitySystem {
     }
 
     private static PeakHour generateEveningPeakHour() throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        Date from = simpleDateFormat.parse("2018-10-17 17:00:00");
-        Date to = simpleDateFormat.parse("2018-10-17 20:00:00");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DEFAULT_TIME_FORMAT);
+        Date from = simpleDateFormat.parse(EVENING_FROM_PEAK_TIME);
+        Date to = simpleDateFormat.parse(EVENING_TO_PEAK_TIME);
         PeakHour peakHour = new PeakHour();
         peakHour.setFrom(from);
         peakHour.setTo(to);

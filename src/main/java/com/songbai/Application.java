@@ -5,10 +5,12 @@ import com.songbai.taxi.CitySystem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.songbai.config.GlobalConfigs.DEFAULT_TIME_FORMAT;
+
 public class Application {
     public static void main(String args[]) throws Exception {
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DEFAULT_TIME_FORMAT);
         Date daytime = simpleDateFormat.parse("2018-10-15 10:11:00");
         Date night = simpleDateFormat.parse("2018-10-15 23:11:00");
         Date morningPeakTime = simpleDateFormat.parse("2018-10-15 08:11:00");
